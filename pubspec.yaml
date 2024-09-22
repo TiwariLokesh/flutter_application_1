@@ -17,6 +17,7 @@ dependencies:
   geolocator: ^9.0.2           # For calculating distances and routes
   flutter_datetime_picker: ^1.5.1  # For date filter functionality
   cupertino_icons: ^1.0.8  # iOS style icons
+  intl: ^0.17.0 # Corrected indentation
 
 dev_dependencies:
   flutter_test:

@@ -22,6 +22,7 @@ class RouteDetailsScreen extends StatelessWidget {
                 zoom: 14.0,
               ),
               polylines: _buildPolylines(),
+              markers: _buildStopMarkers(),
             ),
           ),
           Padding(
@@ -31,8 +32,8 @@ class RouteDetailsScreen extends StatelessWidget {
               children: [
                 Text('Start: ${startLocation.latitude}, ${startLocation.longitude}'),
                 Text('End: ${endLocation.latitude}, ${endLocation.longitude}'),
-                Text('Total KMs: X'), // Replace X with actual distance logic
-                Text('Total Duration: Y'), // Replace Y with actual duration logic
+                Text('Total KMs: X'),  // Calculate the actual distance
+                Text('Total Duration: Y'),  // Calculate actual duration
               ],
             ),
           ),
@@ -48,6 +49,24 @@ class RouteDetailsScreen extends StatelessWidget {
         points: [startLocation, endLocation],
         color: Colors.green,
         width: 5,
+      ),
+    };
+  }
+
+  Set<Marker> _buildStopMarkers() {
+    // Add red dot markers for stop points along the route
+    return {
+      Marker(
+        markerId: MarkerId('start'),
+        position: startLocation,
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+        infoWindow: InfoWindow(title: "Start Location"),
+      ),
+      Marker(
+        markerId: MarkerId('end'),
+        position: endLocation,
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+        infoWindow: InfoWindow(title: "End Location"),
       ),
     };
   }

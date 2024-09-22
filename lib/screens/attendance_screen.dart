@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './location_detail_screen.dart';
 
 class AttendanceScreen extends StatelessWidget {
-  final List<String> members = ["Member 1", "Member 2", "Member 3"];
+  final List<String> members = ["Member 1", "Member 2", "Member 3"]; // Dummy data
 
   @override
   Widget build(BuildContext context) {
@@ -13,16 +13,27 @@ class AttendanceScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(members[index]),
-            trailing: IconButton(
-              icon: Icon(Icons.location_on),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LocationDetailScreen(member: members[index]),
-                  ),
-                );
-              },
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.location_on),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LocationDetailScreen(member: members[index]),
+                      ),
+                    );
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.directions),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/routeDetails');
+                  },
+                ),
+              ],
             ),
           );
         },
