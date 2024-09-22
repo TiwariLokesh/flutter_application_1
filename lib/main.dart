@@ -26,13 +26,19 @@ class MyApp extends StatelessWidget {
           return LocationDetailScreen(member: member);
         },
         '/routeDetails': (context) {
-          // Define start and end locations
-          LatLng startLocation = LatLng(37.7749, -122.4194); // San Francisco
-          LatLng endLocation = LatLng(34.0522, -118.2437);   // Los Angeles
+          // Define start and end locations for the route
+          LatLng startLocation = LatLng(37.7749, -122.4194); // Example: San Francisco
+          LatLng endLocation = LatLng(34.0522, -118.2437);   // Example: Los Angeles
+
+          // Define stop locations (these are stops where the user paused for more than 10 minutes)
+          List<LatLng> stopLocations = [
+            LatLng(36.7783, -119.4179),  // Example stop (midpoint)
+          ];
 
           return RouteDetailsScreen(
             startLocation: startLocation,
             endLocation: endLocation,
+            stopLocations: stopLocations, // List of stop points
           );
         },
       },
