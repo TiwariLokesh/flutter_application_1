@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './location_detail_screen.dart';
 
 class AttendanceScreen extends StatelessWidget {
-  final List<String> members = ["Member 1", "Member 2", "Member 3"]; // Dummy data
+  final List<String> members = ["Member 1", "Member 2", "Member 3"]; 
 
   @override
   Widget build(BuildContext context) {
